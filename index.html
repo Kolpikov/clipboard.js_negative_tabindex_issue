@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TITLE</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-xs-12">
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalFirst">Open First Modal</button>
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalSecond">Open Second Modal</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModalFirst" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button class="copy btn btn-success" data-clipboard-text="1">Copy Text From First Modal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="myModalSecond" class="modal fade" role="dialog" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button class="copy btn btn-success" data-clipboard-text="2">Copy Text From Second Modal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.0/clipboard.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var client = new Clipboard( '.copy' );
+
+            client.on('success', function(e) {
+                console.log('Copied');
+            });
+
+            client.on('error', function(e) {
+                console.log('Error!', 'error');
+            });
+        });
+    </script>
+</body>
+</html>
